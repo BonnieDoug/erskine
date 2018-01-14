@@ -1,0 +1,39 @@
+{
+  "name": "dassianuk",
+  "version": "1.0.0",
+  "description": "Dassian UK website",
+  "main": "/web/app.php",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "flag-icon-css": "^2.8.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "ionicons": "^2.0.0",
+    "jquery": "^2.1.4",
+    "jquery-match-height": "^0.7.2",
+    "jshint": "^2.9.4",
+    "materialize-css": "^0.99.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HS-Direct/DassianUK.git"
+  },
+  "author": "DHayward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HS-Direct/DassianUK/issues"
+  },
+  "homepage": "https://github.com/HS-Direct/DassianUK#readme"
+}
