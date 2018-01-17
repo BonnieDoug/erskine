@@ -48,7 +48,7 @@ class Image
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var null
      */
     private $updatedAt = null;
@@ -57,10 +57,16 @@ class Image
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    private $isRetired = false;
+    private $isActive = true;
 
     /**
-     * @ORM\ManyToOne(targetEntity="room")
+     * @ORM\Column(type="boolean")
+     * @var bool
+     */
+    private $isFeatured = false;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="room", inversedBy="images")
      */
     private $room;
 
@@ -199,18 +205,36 @@ class Image
     /**
      * @return boolean
      */
-    public function isIsRetired()
+    public function isIsActive()
     {
-        return $this->isRetired;
+        return $this->isActive;
     }
 
     /**
-     * @param boolean $isRetired
+     * @param boolean $isActive
      * @return Image
      */
-    public function setIsRetired($isRetired)
+    public function setIsActive($isActive)
     {
-        $this->isRetired = $isRetired;
+        $this->isActive = $isActive;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsFeatured()
+    {
+        return $this->isFeatured;
+    }
+
+    /**
+     * @param boolean $isFeatured
+     * @return Image
+     */
+    public function setIsFeatured($isFeatured)
+    {
+        $this->isFeatured = $isFeatured;
         return $this;
     }
 
