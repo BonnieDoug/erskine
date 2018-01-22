@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+    {% for room in rooms %}
+        <h2>{{ room.name }}</h2>
+        <a href="{{ path('rooms_view', { 'name' : room.name }) }}">{{ room.name }}</a>
+    {% endfor %}
+    </div>
+{% endblock body %}

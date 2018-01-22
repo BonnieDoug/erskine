@@ -58,7 +58,7 @@ class Room
      * @ORM\OneToOne(targetEntity="Image")
      * @var \App\Entity\Image
      */
-    private $deafultImage;
+    private $defaultImage;
 
     /**
      * @ORM\OneToMany(targetEntity="Image", mappedBy="room")
@@ -193,18 +193,18 @@ class Room
     /**
      * @return mixed
      */
-    public function getDeafultImage()
+    public function getDefaultImage()
     {
-        return $this->deafultImage;
+        return $this->defaultImage;
     }
 
     /**
-     * @param mixed $deafultImage
+     * @param mixed $defaultImage
      * @return Room
      */
-    public function setDeafultImage($deafultImage)
+    public function setDefaultImage($defaultImage)
     {
-        $this->deafultImage = $deafultImage;
+        $this->defaultImage = $defaultImage;
         return $this;
     }
 

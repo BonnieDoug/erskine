@@ -1,0 +1,32 @@
+    blockquote {
+        background:#f9f9f9;
+        border-left:10px solid #01579b;
+        margin:1.5em 10px;
+        padding:1.5em 10px;
+        text-overflow: "…";
+    }
+    blockquote:after {
+        color:#ac2100;
+        content:close-quote;
+        font-size:5em;
+        line-height:.1em;
+        margin-left:.25em;
+        float: right;
+        
+    }
+    blockquote:before {
+        color:#ac2100;
+        content:open-quote;
+        font-size:5em;
+        line-height:.1em;
+        margin-right:.25em;
+        vertical-align:-.4em;
+    }
+    blockquote i {
+        color:#207145;
+    }
+    blockquote a{
+        color: #01579b !important;
+    }
+    
+    

@@ -66,7 +66,7 @@ class Image
     private $isFeatured = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="room", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="images")
      */
     private $room;
 

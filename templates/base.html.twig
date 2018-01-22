@@ -1,4 +1,3 @@
-{#{% set offsetHero = "center" %}#}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,33 +6,33 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}Erskine Hotel</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/assets/css/app.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=1"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('/assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('/assets/img/favicons/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('/assets/img/favicons/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/assets/img/favicons/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('/assets/img/favicons/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('/assets/img/favicons/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('/assets/img/favicons/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('/assets/img/favicons/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/img/favicons/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192"
-          href="{{ asset('/assets/img/favicons/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/assets/img/favicons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('/assets/img/favicons/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/assets/img/favicons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('/assets/img/favicons/manifest.json') }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('/assets/img/favicons/ms-icon-144x144.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="theme-color" content="#ffffff">
+    <style>
+        .alt-font {
+            font-family: 'Playfair Display', 'Roboto Light',serif;
+        }
+        .main-h2 {
+            font-size:3rem;
+            font-style:italic;
+            letter-spacing: 6px;
+            line-height: 3rem;
+        }
+        .margin-0 {
+            margin:0;
+        }
+
+    </style>
     {% block stylesheets %}
         {# For additional stylesheets, if need on other pages, ensures they are added AFTER the main sheets. #}
     {% endblock %}
 </head>
 
-<body style="background:#f1f3f2;">
-
+<body>
+{# START NAV #}
+{% include "layout/navigation.html.twig" %}
+{# END NAV #}
 {### START MAIN SECTION ###}
 <main>
     {% block body %}
@@ -41,20 +40,16 @@
 </main>
 {### END MAIN SECTION ###}
 {### START FOOTER SECTION ###}
-<footer class="page-footer light-blue darken-4">
-    <div class="footer-copyright blue darken-4 ">
-        <div class="container ">
-            <div class="row text-center">
-                <div class="col s12 l4 ">
-                    <strong>Erskine Hotel</strong><br>
-                    <a style="cursor:text" href="tel:">+phone </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include "layout/footer.html.twig" %}
 {### END FOOTER SECTION ###}
-<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="/assets/js/app.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.carousel.carousel-slider').carousel({fullWidth: true});
+        $(".button-collapse").sideNav()
+        $(".dropdown-button").dropdown()
+    })
+</script>
 {% block js %}{% endblock js %}
 </body>
 </html>

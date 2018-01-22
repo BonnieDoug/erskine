@@ -1,0 +1,39 @@
+<nav class="white" style="height:64px;line-height: 64px;">
+    <div class="nav-wrapper">
+        <a href="{{ path('home') }}" class="brand-logo center"><img src="/assets/images/logo.png" alt="Erskine Appartments logo"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down" style="width:43%">
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;float:right;"><a href="badges.html">Services</a></li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;float:right;">
+                <a href="#!" data-activates="rooms-dropdown" class="dropdown-button">The Rooms <i
+                            class="material-icons right">arrow_drop_down</i></a>
+            </li>
+        </ul>
+        <ul class="right hide-on-med-and-down" style="width:43%">
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="mobile.html">Contact Us</a></li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="mobile.html">Our History</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="{{ path('home') }}">Home <i class="material-icons">&#xE88A;</i></a></li>
+            <li><a href="badges.html">Services</a></li>
+            <li><a href="#!" data-activates="mobile-rooms-dropdown" class="dropdown-button">The Rooms <i
+                            class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="mobile.html">Book</a></li>
+            <li><a href="mobile.html">History</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul id="rooms-dropdown" class="dropdown-content">
+    <li><a href="{{ path('rooms_index') }}">All Rooms</a></li>
+    {% for room in navigation.getRooms %}
+        <li><a href="{{ path('rooms_view', { 'name' : room.name }) }}">{{ room.number ~ " - " ~ room.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<ul id="mobile-rooms-dropdown" class="dropdown-content">
+    <li><a href="{{ path('rooms_index') }}">All Rooms</a></li>
+    {% for room in navigation.getRooms %}
+        <li><a href="{{ path('rooms_view', { 'name' : room.name }) }}">{{ room.number ~ " - " ~ room.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+// Mixins
+// @import "components/prefixer";
+@import "components/mixins";  
+@import "components/color";
+
+// Variables;
+@import "custom/variables";
+
+// Reset
+@import "components/normalize";
+
+// components
+@import "components/global";
+@import "components/badges"; 
+@import "components/icons-material-design";
+@import "components/grid";
+@import "components/navbar";
+@import "components/roboto";
+@import "components/typography";
+@import "components/transitions";
+
+@import "custom/cards";
+@import "components/cards";
+
+@import "components/toast";
+@import "components/tabs";
+@import "components/tooltip";
+@import "components/buttons"; 
+@import "components/dropdown";
+@import "components/waves";
+@import "components/modal";
+@import "components/collapsible";
+@import "components/chips";
+@import "components/materialbox";
+@import "components/forms/forms";
+@import "components/table_of_contents";
+@import "components/sideNav";
+@import "components/preloader";
+@import "components/slider";
+@import "components/carousel";
+@import "components/tapTarget";
+@import "components/pulse";
+@import "components/date_picker/default";
+@import "components/date_picker/default.date";
+@import "components/date_picker/default.time";
+
+@import "custom/helpers";
+@import "custom/misc";
+@import "custom/blockquotes";
+
+@import "ionicons-variables";
+@import "custom/font_weight";
+@import "custom/timeline";
+/*!
+  Ionicons, v#{$ionicons-version}
+  Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
+  https://twitter.com/benjsperry  https://twitter.com/ionicframework
+  MIT License: https://github.com/driftyco/ionicons
+
+  Android-style icons originally built by Google’s
+  Material Design Icons: https://github.com/google/material-design-icons
+  used under CC BY http://creativecommons.org/licenses/by/4.0/
+  Modified icons to fit ionicon’s grid from original.
+*/
+
+@import "ionicons-font";
+@import "ionicons-icons";
+//@import "flags/flag-icon";
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+.navbar-fixed .active{
+    background-color: aliceblue;
+}
+.small-para{
+    height: 300px;
+}
+
+html, body, .block {
+    height: 100%;
+}
+
+ ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+     color: #444 !important;
+ }
+::-moz-placeholder { /* Firefox 19+ */
+    color: #444 !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #444 !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #444 !important;
+}
+
+
+/*main{
+    padding-top: 10px;
+}*/
