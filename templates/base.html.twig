@@ -11,16 +11,35 @@
     <meta name="theme-color" content="#ffffff">
     <style>
         .alt-font {
-            font-family: 'Playfair Display', 'Roboto Light',serif;
+            font-family: 'Playfair Display', 'Roboto Light', serif;
         }
+
         .main-h2 {
-            font-size:3rem;
-            font-style:italic;
+            font-size: 3rem;
+            font-style: italic;
             letter-spacing: 6px;
             line-height: 3rem;
         }
+
         .margin-0 {
-            margin:0;
+            margin: 0;
+        }
+
+        .title-block {
+            max-width: 400px;
+            position: relative;
+
+            text-align: center;
+            background-color: white;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        @media (min-width: 600px) {
+            .title-block {
+                position:absolute;
+                left: 0;
+                right: 0;
+            }
         }
 
     </style>

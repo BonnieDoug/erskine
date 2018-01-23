@@ -1,25 +1,29 @@
 <nav class="white" style="height:64px;line-height: 64px;">
     <div class="nav-wrapper">
-        <a href="{{ path('home') }}" class="brand-logo center"><img src="/assets/images/logo.png" alt="Erskine Appartments logo"></a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down" style="width:43%">
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;float:right;"><a href="badges.html">Services</a></li>
+        <a href="{{ path('home') }}" class="brand-logo center">
+            <img src="/assets/images/logo.png" alt="Erskine Appartments logo">
+        </a>
+        <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down" style="width:42%">
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;float:right;"><a href="{{ path('services') }}">Services</a></li>
+            <li class="purple-text text-darken-2" style="float:right">|</li>
             <li style="font-family: 'Playfair Display', 'Roboto Light',serif;float:right;">
                 <a href="#!" data-activates="rooms-dropdown" class="dropdown-button">The Rooms <i
                             class="material-icons right">arrow_drop_down</i></a>
             </li>
         </ul>
-        <ul class="right hide-on-med-and-down" style="width:43%">
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="mobile.html">Contact Us</a></li>
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="mobile.html">Our History</a></li>
+        <ul class="right hide-on-med-and-down" style="width:42%">
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="{{ path('contact') }}">Contact Us</a></li>
+            <li class="purple-text text-darken-2">|</li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="{{ path('history') }}">Our History</a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav" id="mobile-navigation">
             <li><a href="{{ path('home') }}">Home <i class="material-icons">&#xE88A;</i></a></li>
-            <li><a href="badges.html">Services</a></li>
+            <li><a href="{{ path('services') }}">Services</a></li>
             <li><a href="#!" data-activates="mobile-rooms-dropdown" class="dropdown-button">The Rooms <i
                             class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="mobile.html">Book</a></li>
-            <li><a href="mobile.html">History</a></li>
+            <li><a href="{{ path('contact') }}">Contact Us</a></li>
+            <li><a href="{{ path('history') }}">History</a></li>
         </ul>
     </div>
 </nav>

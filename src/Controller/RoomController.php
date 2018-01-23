@@ -29,7 +29,8 @@ class RoomController extends Controller
     {
         return $this->render("rooms/index.html.twig", [
             "rooms" => $this->em->getRepository(Room::class)->findBy([
-                "isActive" => true
+                "isActive" => true,
+                "isBookable" => true
             ])
         ]);
     }
