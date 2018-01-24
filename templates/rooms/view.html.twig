@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        .collection .collection-item {
+            min-height: 65px !important;
+            line-height: 2.6rem !important;
+        }
+    </style>
+{% endblock stylesheets %}
 {% block body %}
     <div class="title-block">
         <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
             {{ room.name }}</h2>
-        <p style="font-family: Serif, Roboto;color:#111;">Short tagline for the Erskine hotel</p>
+        <p style="font-family: Serif, Roboto;color:#111;">{{ room.description }}</p>
     </div>
-    <div id="index-banner" class="parallax-container hide-on-med-and-down show-on-medium-and-up" style="max-height: 400px;">
+    <div id="index-banner" class="parallax-container hide-on-med-and-down show-on-medium-and-up"
+         style="max-height: 400px;">
         <div class="parallax">
             <img src="/assets/images{{ room.images[1].source }}"
                  style="bottom:120px;"
@@ -14,29 +23,20 @@
     </div>
     <div class="container">
         <div class="row">
-            <section class="col m9 flow-text">
-                {{ room.html|raw }}
+            <section class="col l4 push-l8 xl3 push-xl9">
+                {% include 'rooms/card.inc.twig' %}
             </section>
-            <section class="col m3">
-                <div class="card grey darken-3">
-                    <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{ room.name }}</span>
-                        <p>{{ room.description }}</p>
-                    </div>
-                    <div class="card-action text-center">
-                        <a class="purple darken-1 waves-effect waves-light btn">Book this room</a>
-                    </div>
-                </div>
+            <section class="col l8 flow-text pull-l4 xl9 pull-xl3">
+                {{ room.html|raw }}
             </section>
         </div>
     </div>
 {% endblock body %}
 
 {% block js %}
-<script>
-    $(document).ready(function(){
-        $('.small-carousel').carousel();
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            $('.small-carousel').carousel();
+        });
+    </script>
 {% endblock js %}

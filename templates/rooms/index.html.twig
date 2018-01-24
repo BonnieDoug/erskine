@@ -1,4 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        .override-collection .collection-item {
+            min-height: 65px !important;
+            line-height: 2.6rem !important;
+        }
+    </style>
+{% endblock stylesheets %}
 {% block body %}
     <div class="title-block">
         <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
@@ -19,10 +27,19 @@
                 <section class="col m6 l3">
                     <div class="card grey darken-3">
                         <a href="{{ path('rooms_view', { name: room.name }) }}">
-                            <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}">
+                            <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}" style="height:170px;">
                             <div class="card-content white-text">
                                 <span class="card-title">{{ room.name }}</span>
-                                <p>{{ room.description }}</p>
+                                <ul class="collection grey override-collection">
+                                    <li class="grey darken-4 collection-item avatar">
+                                        <i class="material-icons circle purple darken-1">&pound;</i>
+                                        <span class="title bold">Sleeps {{ room.sleepsMin ~ '-' ~ room.sleepsMax }}</span>
+                                    </li>
+                                    <li class="grey darken-4 collection-item avatar">
+                                        <i class="material-icons circle purple darken-1">hotel</i>
+                                        <span class="title bold">From £---</span>
+                                    </li>
+                                </ul>
                             </div>
                         </a>
                         <div class="card-action text-center">
