@@ -2,16 +2,30 @@
 {% block stylesheets %}
     <style>
         .override-collection .collection-item {
-            min-height: 65px !important;
+            min-height: 0px !important;
             line-height: 2.6rem !important;
+        }
+
+        .collection .collection-item.avatar .circle {
+            margin: 4px;
+            height: 30px;
+            width: 30px;
+        }
+
+        .collection .collection-item.avatar i.circle {
+            line-height: 28px;
+        }
+
+        .card .card-content {
+            padding: 5px 20px;
         }
     </style>
 {% endblock stylesheets %}
 {% block body %}
     <div class="title-block">
         <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
-            Our rooms</h2>
-        <p style="font-family: Serif, Roboto;color:#111;">Short tagline for the Erskine hotel</p>
+            Our Suites</h2>
+        <h5 style="font-family: Serif, Roboto;color:#111;">A Great Nights Sleep</h5>
     </div>
     <div id="index-banner" class="parallax-container hide-on-med-and-down show-on-medium-and-up"
          style="max-height: 400px;">
@@ -22,22 +36,24 @@
         </div>
     </div>
     <div class="container">
+        <p class="flow-text">At Erskine Apartments we know how important a good night’s sleep is and that’s why our room are designed to
+            ensure that our guests get a comfortable and peaceful night.</p>
         <div class="row">
             {% for room in rooms %}
-                <section class="col m6 l3">
-                    <div class="card grey darken-3">
+                <section class="col m6 l4 xl3">
+                    <div class="card medium grey darken-3">
                         <a href="{{ path('rooms_view', { name: room.name }) }}">
-                            <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}" style="height:170px;">
+                            <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}">
                             <div class="card-content white-text">
                                 <span class="card-title">{{ room.name }}</span>
                                 <ul class="collection grey override-collection">
                                     <li class="grey darken-4 collection-item avatar">
                                         <i class="material-icons circle purple darken-1">&pound;</i>
-                                        <span class="title bold">Sleeps {{ room.sleepsMin ~ '-' ~ room.sleepsMax }}</span>
+                                        <span class="bold">Sleeps {{ room.sleepsMin ~ '-' ~ room.sleepsMax }}</span>
                                     </li>
                                     <li class="grey darken-4 collection-item avatar">
                                         <i class="material-icons circle purple darken-1">hotel</i>
-                                        <span class="title bold">From £---</span>
+                                        <span class="bold">From £---</span>
                                     </li>
                                 </ul>
                             </div>
