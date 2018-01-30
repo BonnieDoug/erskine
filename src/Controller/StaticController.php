@@ -24,19 +24,27 @@ class StaticController extends Controller
     }
 
     /**
-     * @Route("/services", name="services")
+     * @Route("/business-stay", name="business-stay")
      */
-    public function servicesAction()
+    public function businessStayAction()
     {
-        return $this->render("services.html.twig");
+        return $this->render("business-stay.html.twig");
     }
 
     /**
-     * @Route("/history", name="history")
+     * @Route("/about", name="about")
      */
     public function historyAction()
     {
-        return $this->render("history.html.twig");
+        return $this->render("about.html.twig");
+    }
+
+    /**
+     * @Route("/location", name="location")
+     */
+    public function locationAction()
+    {
+        return $this->render("location.html.twig");
     }
 
 }
