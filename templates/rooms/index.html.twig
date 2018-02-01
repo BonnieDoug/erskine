@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set page = 'rooms' %}
 {% block stylesheets %}
     <style>
         .override-collection .collection-item {
@@ -19,6 +20,14 @@
         .card .card-content {
             padding: 5px 20px;
         }
+
+        .room-details-list {
+            list-style: none;
+        }
+
+        .room-details-list li {
+            display: inline-block;
+        }
     </style>
 {% endblock stylesheets %}
 {% block body %}
@@ -36,33 +45,41 @@
         </div>
     </div>
     <div class="container">
-        <p class="flow-text">At Erskine Apartments we know how important a good night’s sleep is and that’s why our room are designed to
+        <p class="flow-text">At Erskine Apartments we know how important a good night’s sleep is and that’s why our room
+            are designed to
             ensure that our guests get a comfortable and peaceful night.</p>
         <div class="row">
+            <hr>
             {% for room in rooms %}
-                <section class="col m6 l4 xl3">
-                    <div class="card medium grey darken-3">
-                        <a href="{{ path('rooms_view', { name: room.name }) }}">
-                            <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}">
-                            <div class="card-content white-text">
-                                <span class="card-title">{{ room.name }}</span>
-                                <ul class="collection grey override-collection">
-                                    <li class="grey darken-4 collection-item avatar">
-                                        <i class="material-icons circle purple darken-1">&pound;</i>
-                                        <span class="bold">Sleeps {{ room.sleepsMin ~ '-' ~ room.sleepsMax }}</span>
-                                    </li>
-                                    <li class="grey darken-4 collection-item avatar">
-                                        <i class="material-icons circle purple darken-1">hotel</i>
-                                        <span class="bold">From £---</span>
-                                    </li>
+                <section class="row">
+                    <div class="card">
+                        <a style="color: #444;" href="{{ path('rooms_view', { 'name' : room.name }) }}">
+                            <div class="col m3">
+                                <img class="responsive-img" src="/assets/images{{ room.defaultImage.source }}">
+                            </div>
+                            <div class="col m6">
+                                <h3 style="margin-top: 5px;">{{ room.name }}</h3>
+                                <p>{{ room.description }}</p>
+                                <hr>
+                                <ul class="room-details-list">
+                                    <li><i class="material-icons">weekend</i></li>
+                                    <li><i class="material-icons">wifi_tethering</i></li>
+                                    <li><i class="material-icons">local_hotel</i></li>
+                                    <li><i class="material-icons">local_bar</i></li>
+                                    <li><i class="material-icons">local_cafe</i></li>
+                                    <li><i class="material-icons">local_phone</i></li>
+                                    <li><i class="material-icons">restaurant</i></li>
                                 </ul>
                             </div>
                         </a>
-                        <div class="card-action text-center">
-                            <a class="purple darken-1 waves-effect waves-light btn">Book this room</a>
+                        <div class="col m3 center-align">
+                            <h2>£{{ room.priceFrom }}</h2>
+                            <button class="waves-effect waves-light btn purple accent-4 text-xs-center">Book Now
+                            </button>
                         </div>
                     </div>
                 </section>
+                <hr>
             {% endfor %}
         </div>
     </div>

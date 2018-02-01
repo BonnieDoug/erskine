@@ -1,29 +1,39 @@
 {% extends 'base.html.twig' %}
+{% set page = 'business' %}
 {% block body %}
-    <div class="title-block">
-        <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
-            Business Stay</h2>
-        <h5 style="font-family: Serif, Roboto;color:#111;">Book your business accommodation with us, today!</h5>
-    </div>
-    <div id="index-banner" class="parallax-container hide-on-med-and-down show-on-medium-and-up"
-         style="max-height: 400px;">
-        <div class="parallax">
-            <img src="/assets/images/10/7.jpg"
-                 style="bottom:120px;"
-                 alt="Unsplashed background img 1">
+    <div class="container">
+        <div class="row">
+            <div class="col m4">
+                <div class="card">
+                    <div class="card-content black white-text lighten-4">
+                        <h2 style="font-size:3rem;font-style:italic;letter-spacing: 6px;line-height: 3rem;">
+                            Business Stay</h2>
+                        <h5 class="text-grey">Book your business accommodation with us, today!</h5>
+                    </div>
+                </div>
+            </div>
+            <div id="index-banner" class="col m8">
+                <div class="card" style="height:276px; width:100%; background: url('/assets/images/Communal/2.jpg') no-repeat fixed center">
+                        {#<img src="/assets/images/Communal/1.jpg"#}
+                             {#style="width:100%; overflow:hidden;height:276px;"#}
+                             {#alt="Unsplashed background img 1">#}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container flow-text">
-        <h1>Business Stay</h1>
-        <p>Each of our apartments are modernise with high-spec decorated and offers guests a warm, comfortable and
-            luxury stay. If you are planning a longer business trip and considering extended stay, please contact us and
-            we will try our best to meet your needs.
-        <p>With each apartment are fully equipped with an open plan kitchenette/ living area, modern bathrooms, we
-            combines the key comforts of a hotel with the privacy and convenience of your own home. Benefits include a
-            weekly maid service alone with towel and linen change. More regular housekeeping can also be provided if
-            required.
-        <p>Book your business accommodation with us, today!
-        <p><strong>Please note:</strong> We have room for groups of colleagues and can arrange block bookings. Please provide details in
-            your enquiry form.
+        <div class="flow-text">
+            <p>Each of our apartments are modernise with high-spec decorated and offers guests a warm, comfortable and
+                luxury stay. If you are planning a longer business trip and considering extended stay, please contact us
+                and
+                we will try our best to meet your needs.
+            <p>With each apartment are fully equipped with an open plan kitchenette/ living area, modern bathrooms, we
+                combines the key comforts of a hotel with the privacy and convenience of your own home. Benefits include
+                a
+                weekly maid service alone with towel and linen change. More regular housekeeping can also be provided if
+                required.
+            <p>Book your business accommodation with us, today!
+            <p><strong>Please note:</strong> We have room for groups of colleagues and can arrange block bookings.
+                Please provide details in
+                your enquiry form.
+        </div>
     </div>
 {% endblock body %}

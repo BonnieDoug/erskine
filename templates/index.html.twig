@@ -1,17 +1,56 @@
 {% extends 'base.html.twig' %}
+{% set page = 'home' %}
 {% block stylesheets %}
     <style>
     </style>
 {% endblock stylesheets %}
 {% block body %}
-    <div id="index-banner" class="parallax-container">
-        <div class="title-block">
-            <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
-                "A Home Away from Home"</h2>
-            <h5 style="font-family: Serif, Roboto;color:#111;">Modern, luxurious all in one suite</h5>
-        </div>
-        <div class="parallax"><img src="/assets/images/Communal/1.jpg" alt="Unsplashed background img 1"></div>
+    {#<div id="index-banner" class="parallax-container">#}
+    {#<div class="title-block">#}
+    {#<h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">#}
+    {#"A Home Away from Home"</h2>#}
+    {#<h5 style="font-family: Serif, Roboto;color:#111;">Modern, luxurious all in one suite</h5>#}
+    {#</div>#}
+    {#<div class="parallax"><img src="/assets/images/Communal/1.jpg" alt="Unsplashed background img 1"></div>#}
+    {#</div>#}
+    <div class="title-block" style="z-index:999">
+        <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
+            Our Suites</h2>
+        <h5 style="font-family: Serif, Roboto;color:#111;">A Great Nights Sleep</h5>
     </div>
+    <div class="carousel carousel-slider center" data-indicators="true" style="height: 85vh; max-height:770px;">
+        <div class="carousel-item black-text"
+             style="background-image: url('/assets/images/Communal/1.jpg'); background-position: center; background-size: cover;">
+            <a href="#"
+               style="width:100vw;height:100vh; float:right;">
+            </a>
+        </div>
+        <div class="carousel-item black-text"
+             style="background-image: url('/assets/images/Communal/3.jpg'); background-position: center; background-size: cover;">
+            <a href="#"
+               style="width:100vw;height:100vh; float:right;">
+            </a>
+        </div>
+        <div class="carousel-item black-text"
+             style="background-image: url('/assets/images/Communal/2.jpg'); background-position: center; background-size: cover;">
+            <a href="#"
+               style="width:100vw;height:100vh; float:right;">
+            </a>
+        </div>
+        <div class="left" style="position: absolute;
+                 top: 45%; left:10px;
+                 transform: translateY(-45%);">
+            <button id="caro-prev" type="button" class="btn-floating btn-large waves-effect waves-light caro-btn"><i
+                        class="material-icons">chevron_left</i></button>
+        </div>
+        <div class="right" style="position: absolute;
+                 top: 45%; right:10px;
+                 transform: translateY(-45%);">
+            <button id="caro-next" type="button" class="btn-floating btn-large waves-effect waves-light caro-btn"><i
+                        class="material-icons">chevron_right</i></button>
+        </div>
+    </div>
+
     {#<div class="card grey darken-4 margin-0 text-center">#}
     {#<div class="card-content white-text">#}
     {#<h2 class="alt-font main-h2">Sheffield's Finest</h2>#}
@@ -27,9 +66,9 @@
                         welcome stay for all our guests.</strong>
                 </p>
                 <blockquote><p><strong><em>A customer review - </em></strong>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    Aliquam tincidunt mauris eu risus Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    Aliquam tincidunt mauris eu risus</p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Aliquam tincidunt mauris eu risus Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Aliquam tincidunt mauris eu risus</p>
                 </blockquote>
             </div>
             <div class="col m3">
@@ -42,3 +81,29 @@
         </div>
     </section>
 {% endblock body %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({fullWidth: true});
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 5500);
+
+            $('#caro-prev').click(function () {
+                $('.carousel').carousel('prev');
+            });
+            $('#caro-next').click(function () {
+                $('.carousel').carousel('next');
+            });
+            if ($(window).width() > 1200) {
+                $('.pinned-bar').pushpin({
+                    top: 600,
+                    bottom: ($(document).height() - ($('footer').outerHeight() + 600))
+                });
+            }
+
+        });
+        //    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    </script>
+{% endblock js %}

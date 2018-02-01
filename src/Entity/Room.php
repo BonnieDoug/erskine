@@ -79,6 +79,11 @@ class Room
     private $updatedAt = null;
 
     /**
+     * @ORM\Column(name="price_from", type="decimal", scale=2, precision=6)
+     */
+    private $priceFrom;
+
+    /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
@@ -384,6 +389,24 @@ class Room
     public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceFrom()
+    {
+        return $this->priceFrom;
+    }
+
+    /**
+     * @param mixed $priceFrom
+     * @return Room
+     */
+    public function setPriceFrom($priceFrom)
+    {
+        $this->priceFrom = $priceFrom;
         return $this;
     }
 

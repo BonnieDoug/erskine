@@ -1,46 +1,57 @@
 <nav class="white" style="height:64px;line-height: 64px;">
     <div class="nav-wrapper">
+        <div class="container">
+
         <a href="{{ path('home') }}" class="brand-logo">
             <img src="/assets/images/logo.png" style="height: 64px;" alt="Erskine Appartments logo">
         </a>
         <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="{{ path('home') }}"><i class="material-icons">&#xE88A;</i></a></li>
+            <li>
+                <a href="{{ path('home') }}" {{ (page == 'home' ? 'class="deep-purple-text text-darken-3"') }}><i class="material-icons">&#xE88A;</i></a>
+            </li>
             <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
-                <a href="#!" data-activates="rooms-dropdown" class="dropdown-button">Our Suites <i
-                            class="material-icons right">arrow_drop_down</i></a>
+                <a href="{{  path('rooms_index') }}" {{ (page == 'rooms' ? 'class="deep-purple-text text-darken-3"') }}>Suites</a>
             </li>
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="{{ path('business-stay') }}">Business
-                    Stay</a></li>
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a
-                        href="{{ path('location') }}">Location</a></li>
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="{{ path('about') }}">About</a>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('business-stay') }}" {{ (page == 'business' ? 'class="deep-purple-text text-darken-3"') }}>Business Stay</a>
             </li>
-            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;"><a href="{{ path('contact') }}">Contact
-                    Us</a></li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('location') }}" {{ (page == 'location' ? 'class="deep-purple-text text-darken-3"') }}>Location</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('about') }}" {{ (page == 'about' ? 'class="deep-purple-text text-darken-3"') }}>About</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('contact') }}" {{ (page == 'contact' ? 'class="deep-purple-text text-darken-3"') }}>Contact Us</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="https://booking.com">Book Now</a>
+            </li>
         </ul>
+            </div>
         <ul class="side-nav" id="mobile-navigation">
-            <li><a href="{{ path('home') }}">Home <i class="material-icons">&#xE88A;</i></a></li>
-            <li><a href="#!" data-activates="mobile-rooms-dropdown" class="dropdown-button">The Rooms <i
-                            class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="{{ path('business-stay') }}">Business Stay</a></li>
-            <li><a href="{{ path('business-stay') }}">Location</a></li>
-            <li><a href="{{ path('contact') }}">Contact Us</a></li>
-            <li><a href="{{ path('about') }}">About Us</a></li>
+            <li>
+                <a href="{{ path('home') }}" {{ (page == 'home' ? 'class="deep-purple-text text-darken-3"') }}>Home <i class="material-icons">&#xE88A;</i></a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{  path('rooms_index') }}" {{ (page == 'rooms' ? 'class="deep-purple-text text-darken-3"') }}>Suites</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('business-stay') }}" {{ (page == 'business' ? 'class="deep-purple-text text-darken-3"') }}>Business Stay</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('location') }}" {{ (page == 'location' ? 'class="deep-purple-text text-darken-3"') }}>Location</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('about') }}" {{ (page == 'about' ? 'class="deep-purple-text text-darken-3"') }}>About</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="{{ path('contact') }}" {{ (page == 'contact' ? 'class="deep-purple-text text-darken-3"') }}>Contact Us</a>
+            </li>
+            <li style="font-family: 'Playfair Display', 'Roboto Light',serif;">
+                <a href="https://booking.com">Book Now</a>
+            </li>
         </ul>
     </div>
 </nav>
-
-<ul id="rooms-dropdown" class="dropdown-content">
-    <li><a href="{{ path('rooms_index') }}">All Rooms</a></li>
-    {% for room in navigation.getRooms %}
-        <li><a href="{{ path('rooms_view', { 'name' : room.name }) }}">{{ room.number ~ " - " ~ room.name }}</a></li>
-    {% endfor %}
-</ul>
-
-<ul id="mobile-rooms-dropdown" class="dropdown-content">
-    <li><a href="{{ path('rooms_index') }}">All Rooms</a></li>
-    {% for room in navigation.getRooms %}
-        <li><a href="{{ path('rooms_view', { 'name' : room.name }) }}">{{ room.number ~ " - " ~ room.name }}</a></li>
-    {% endfor %}
-</ul>
