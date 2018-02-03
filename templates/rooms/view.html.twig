@@ -9,27 +9,48 @@
     </style>
 {% endblock stylesheets %}
 {% block body %}
-    <div class="title-block">
-        <h2 style="font-size:3rem;font-family: 'Playfair Display', 'Roboto Light',serif;font-style:italic;letter-spacing: 6px;color:#333;line-height: 3rem;">
-            {{ room.name }}</h2>
-        <h5 style="font-family: Serif, Roboto;color:#111;">{{ room.description }}</h5>
-    </div>
-    <div id="index-banner" class="parallax-container hide-on-med-and-down show-on-medium-and-up"
-         style="max-height: 400px;">
-        <div class="parallax">
-            <img src="/assets/images{{ room.images[1].source }}"
-                 style="bottom:120px;"
-                 alt="Unsplashed background img 1">
-        </div>
-    </div>
     <div class="container">
         <div class="row">
-            <section class="col l4 push-l8 xl3 push-xl9">
-                {% include 'rooms/card.inc.twig' %}
-            </section>
-            <section class="col l8 flow-text pull-l4 xl9 pull-xl3">
+            <div class="col s12 m6 l4">
+                <div class="card grey darken-4 small">
+                    <div class="card-content center white-text lighten-4">
+                        <h2 style="font-size:3rem;font-style:italic;letter-spacing: 6px;line-height: 3rem;">
+                            {{ room.name }}</h2>
+                        <p>Sleeps: {{ room.sleepsMin ~ '-' ~ room.sleepsMax }}</p>
+                        <h4>From &pound;145</h4>
+                    </div>
+                    <div class="card-action text-center">
+                        <a class="purple darken-1 waves-effect waves-light btn">Book this room</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l8">
+                <div class="card small" style="overflow:hidden;">
+                    <div class="carousel carousel-slider center" data-indicators="true">
+                        {% for image in room.images if image.isActive %}
+                            <div class="carousel-item black-text"
+                                 style="background-image: url('/assets/images{{ image.source }}'); background-position: center; background-size: cover;">
+                            </div>
+                        {% endfor %}
+                        <div class="left" style="position: absolute;
+                 top: 35%; left:10px;
+                 transform: translateY(-45%);">
+                            <button id="caro-prev" type="button"
+                                    class="btn-floating btn-large waves-effect waves-light caro-btn"><i
+                                        class="material-icons">chevron_left</i></button>
+                        </div>
+                        <div class="right"
+                             style="position: absolute; top: 35%; right:10px; transform: translateY(-45%);">
+                            <button id="caro-next" type="button"
+                                    class="btn-floating btn-large waves-effect waves-light caro-btn"><i
+                                        class="material-icons">chevron_right</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flow-text">
                 {{ room.html|raw }}
-            </section>
         </div>
     </div>
 {% endblock body %}
@@ -37,7 +58,24 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $('.small-carousel').carousel();
+            $('.carousel').carousel({fullWidth: true});
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 5500);
+
+            $('#caro-prev').click(function () {
+                $('.carousel').carousel('prev');
+            });
+            $('#caro-next').click(function () {
+                $('.carousel').carousel('next');
+            });
+            if ($(window).width() > 1200) {
+                $('.pinned-bar').pushpin({
+                    top: 600,
+                    bottom: ($(document).height() - ($('footer').outerHeight() + 600))
+                });
+            }
+
         });
     </script>
 {% endblock js %}
